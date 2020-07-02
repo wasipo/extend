@@ -1,0 +1,18 @@
+{
+  "type": "WordPress theme",
+  "license": "GPL-2.0-or-later",
+  "authors": [
+      {
+        "name": "Kohei Horiguchi",
+        "email": "horiguchi@sannnoweb.info",
+        "homepage": "https://mikaduki.info"
+      }
+  ],
+
+  "autoload": {
+    "psr-4": {
+      "App\\": "app"
+    }
+  }
+
+}
