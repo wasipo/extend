@@ -1,2 +1,12 @@
-html body{background:gray}
+@media screen and (max-width: 1440px) {
+  html body .extend-offset-navigation .logo {
+    max-width: 300px; } }
+
+html body .extend-offset-navigation .logo img {
+  max-width: 80%;
+  padding: 20px; }
+
+@media screen and (max-width: 768px) {
+  html body .extend-offset-navigation .item-parent {
+    display: none; } }
 

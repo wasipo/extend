@@ -4,25 +4,21 @@ namespace App;
 
 use App\util;
 
-class IncludeDatas {
 
-    const PREFPATH = '/config/pref.php';
+class IncludeDatas extends BaseDatas {
+
 
     public function __construct() {
 
-        $enqueque = util::getConst('enqueque');
+        parent::__construct();
 
         add_action('wp_enqueue_scripts',array(&$this, 'include_css'),10,1);
-        do_action('wp_enqueue_scripts', $enqueque['css']);
+        do_action('wp_enqueue_scripts', $this->enqueque['css']);
 
         add_action('wp_enqueue_scripts', array(&$this, 'include_js'));
-        do_action('wp_enqueue_scripts', $enqueque['js']);
+        do_action('wp_enqueue_scripts', $this->enqueque['js']);
 
 
-    }
-
-    public static function get_pref() {
-        return require_once(get_template_directory().self::PREFPATH);
     }
 
     public function include_css($enqueued) {

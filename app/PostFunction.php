@@ -4,8 +4,6 @@ namespace App;
 
 class PostFunction  {
 
-    const PREFPATH = '/config/pref.php';
-
     public function __construct() {
         add_action('admin_menu',array(&$this, 'add_seo'),10,1);
     }

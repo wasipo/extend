@@ -6,10 +6,7 @@ use App\IncludeDatas;
 use App\PostFunction;
 use App\ThemeCustomizer;
 
-
 new IncludeDatas();
 new PostFunction();
 new ThemeCustomizer();
-
-
 

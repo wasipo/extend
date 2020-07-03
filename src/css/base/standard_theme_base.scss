@@ -1,12 +1,52 @@
 @charset "UTF-8";
 
-$bg-color: gray;
+$breakpoints: (
+        'sm': 400,
+        'md': 768,
+        'lg': 1000,
+        'xl': 1200,
+        'o': 1440,
+) !default;
+
+$logo_base_size: 300;
+
+@mixin mediaQuery($breakpoint: 768) {
+    @media screen and (max-width: #{$breakpoint}px) {
+        @content;
+    }
+}
 
 html {
-
     body {
-        background: rgba( $bg-color, 1 );
+
+        //.extend-xo-size {
+        //    width: $xo;
+        //}
+
+        .extend-offset-navigation {
+
+            .logo {
+                @include mediaQuery(map-get($breakpoints,'o')) {
+                    max-width: #{$logo_base_size}px;
+                }
+                img {
+                    max-width: 80%;
+                    padding: 20px;
+                }
+            }
+            .item-parent {
+                @include mediaQuery(map-get($breakpoints,'md')) {
+                    display: none;
+                }
+                .item {
+
+                }
+
+            }
+
+
+
+        }
+
     }
-
-
 }
