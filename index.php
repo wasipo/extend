@@ -1,7 +1,7 @@
 <?php
 get_header();
 ?>
-<section class="content-layout-o layout-size-max theme_back_ground height_max">
+<section class="content-layout-o layout-size-max theme_back_ground height_max top-section">
     <nav class="layout-size-o extend-offset-navigation">
         <div class="logo nav-item">
             <img src="<?php echo get_template_directory_uri().'/assets/img/logo.png' ?>" />
@@ -53,4 +53,10 @@ get_header();
             </a>
         </div>
     </nav>
+</section>
+<section class="contents even-section">
+
+</section>
+<section class="contents odd-section">
+    aaaaaa
 </section>
