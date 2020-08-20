@@ -18,7 +18,6 @@ class IncludeDatas extends BaseDatas {
         add_action('wp_enqueue_scripts', array(&$this, 'include_js'));
         do_action('wp_enqueue_scripts', $this->enqueque['js']);
 
-
     }
 
     public function include_css($enqueued) {
@@ -32,7 +31,6 @@ class IncludeDatas extends BaseDatas {
     }
 
     public function include_js($enqueued) {
-
         if (is_array($enqueued)) {
             foreach($enqueued as $row) {
                 if(!is_admin()) {

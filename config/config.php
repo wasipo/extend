@@ -1,6 +1,20 @@
 <?php
 defined( 'ABSPATH' ) || die();
 
+
+return[
+
+    'navigation' => [
+        'tempest_header_navi' => 'ヘッダーナビゲーション',
+        'tempest_footer_navi' => 'フッターナビゲーション',
+    ]
+
+
+
+];
+
+
+
 /**
 * Post Type
 */

@@ -105,19 +105,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sub__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./sub */ \"./src/sub.js\");\n/* harmony import */ var _css_base_standard_theme_base_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./css/base/standard_theme_base.scss */ \"./src/css/base/standard_theme_base.scss\");\n/* harmony import */ var _css_base_standard_theme_base_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_base_standard_theme_base_scss__WEBPACK_IMPORTED_MODULE_1__);\n\n\nObject(_sub__WEBPACK_IMPORTED_MODULE_0__[\"hello\"])();\n\n//# sourceURL=webpack:///./src/standard_base.js?");
-
-/***/ }),
-
-/***/ "./src/sub.js":
-/*!********************!*\
-  !*** ./src/sub.js ***!
-  \********************/
-/*! exports provided: hello */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"hello\", function() { return hello; });\nfunction hello() {\n  alert(\"helloメソッドが実行された。\");\n}\n\n//# sourceURL=webpack:///./src/sub.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_base_standard_theme_base_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/base/standard_theme_base.scss */ \"./src/css/base/standard_theme_base.scss\");\n/* harmony import */ var _css_base_standard_theme_base_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_base_standard_theme_base_scss__WEBPACK_IMPORTED_MODULE_0__);\n// import { hello } from \"./sub\";\n // hello();\n\n//# sourceURL=webpack:///./src/standard_base.js?");
 
 /***/ })
 

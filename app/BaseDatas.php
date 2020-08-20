@@ -19,8 +19,4 @@ class BaseDatas
             remove_action($row['action_name'],$row['remove_target'],$row['priority']);
         }
     }
-
-
-
-
 }

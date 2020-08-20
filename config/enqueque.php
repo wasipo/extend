@@ -1,5 +1,8 @@
 <?php
 
+//var_dump(get_option('header_type'));
+
+
 return [
 
 

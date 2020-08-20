@@ -1,57 +1,35 @@
 <?php
 get_header();
+$const = require(get_template_directory().'/config/const.php');
 ?>
-<section class="content-layout-o layout-size-max theme_back_ground height_max top-section">
-    <nav class="layout-size-o extend-offset-navigation">
-        <div class="logo nav-item">
-            <img src="<?php echo get_template_directory_uri().'/assets/img/logo.png' ?>" />
+
+<section class="contet-layout-o layout-size-max">
+
+</section>
+<section class="content-layout-o layout-size-max <?php if(get_option('header_type')===$const['header_type']['background']) : ?>theme_back_ground height_max <?php endif; ?>top-section">
+    <nav class="layout-size-o header-navigation <?php echo get_navigation_class(get_option('nav_type'),$const['nav_type']); ?>">
+        <div class="header_logo horizontal-logo nav-item <?php echo get_navigation_class(get_option('nav_type'),$const['nav_type']); ?>">
+            <img src="<?php echo esc_url(get_theme_mod('set_logo')); ?>" />
         </div>
-        <div class="nav-item on-sub-menu">
-            <a href="#">
-                <span class="nav-sub-title">ホーム</span>
-                <div class="nav-item-info">HOME</div>
-            </a>
-            <ul class="theme-sub-menu">
-                <li class="sub-menu-item">山田本山の麦茶は大して</li>
-                <li class="sub-menu-item">眠い眠い超眠い</li>
-                <li class="sub-menu-item">新規ワードプレス</li>
-            </ul>
+        <?php if(get_option('nav_type')!==$const['nav_type']['none']) : ?>
+        <div class="navigation-wrapper <?php echo get_navigation_class(get_option('nav_type'),$const['nav_type']); ?>">
+            <?php foreach(get_navigation_data('tempest_header_navi') as $key => $item) : ?>
+                <div class="nav-item on-sub-menu">
+                    <a class="link-main" href="#">
+                        <span class="nav-sub-title <?php echo get_header_class(get_option('header_type'),$const['header_type']); ?>"><?php echo $item['parent'] ?></span>
+                        <div class="nav-item-info <?php echo get_header_class(get_option('header_type'),$const['header_type']); ?>"><?php echo mb_substr($item['description'],0,15) ?></div>
+                    </a>
+                    <?php if(array_key_exists('children',$item)) :?>
+                    <ul class="theme-sub-menu">
+                        <?php foreach($item['children'] as $children) : ?>
+                            <li class="sub-menu-item"><a href="#"><?php echo $children['title']; ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
         </div>
-        <div class="nav-item on-sub-menu">
-            <a href="#">
-                <span class="nav-sub-title">設定ガイド</span>
-                <div class="nav-item-info">GUIDE</div>
-            </a>
-            <ul class="theme-sub-menu">
-                <li class="sub-menu-item">山田本山の麦茶は大して</li>
-                <li class="sub-menu-item">眠い眠い超眠い</li>
-                <li class="sub-menu-item">新規ワードプレス</li>
-            </ul>
-        </div>
-        <div class="nav-item">
-            <a href="#">
-                <span class="nav-sub-title">コミュニティ</span>
-                <div class="nav-item-info">COMMUNITY</div>
-            </a>
-        </div>
-        <div class="nav-item">
-            <a href="#">
-                <span class="nav-sub-title">ユーザーの声</span>
-                <div class="nav-item-info">FEEDBACK</div>
-            </a>
-        </div>
-        <div class="nav-item">
-            <a href="#">
-                <span class="nav-sub-title">製品</span>
-                <div class="nav-item-info">PRODUCT</div>
-            </a>
-        </div>
-        <div class="nav-item">
-            <a href="#">
-                <span class="nav-sub-title">ブログ</span>
-                <div class="nav-item-info">BLOG</div>
-            </a>
-        </div>
+        <?php endif; ?>
     </nav>
 </section>
 <section class="contents even-section">
