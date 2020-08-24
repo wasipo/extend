@@ -33,7 +33,7 @@ $const = require(get_template_directory().'/config/const.php');
     </nav>
 </section>
 <section class="contents even-section">
-
+    <?php dynamic_sidebar( 'top_contents' ); ?>
 </section>
 <section class="contents odd-section">
     aaaaaa

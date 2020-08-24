@@ -10,6 +10,7 @@ use App\util;
 use App\Navigation;
 use App\TempestRegister;
 
+
 new IncludeDatas();
 new PostFunction();
 new ThemeCustomizer();
@@ -95,6 +96,7 @@ function get_navigation_data($navigation_name) {
     return $result;
 
 }
+
 
 
 

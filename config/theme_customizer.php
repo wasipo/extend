@@ -18,7 +18,7 @@ return [
                 [
                     'customize_setting' => [
                         [
-                            'setting_name' => 'postEnable',
+                            'setting_name' => 'header_layout',
                             'group_section' => [
                                 'type'      => 'option',
                                 'transport' => 'refresh', // 表示更新のタイミング。デフォルトは'refresh'（即時反映）
@@ -66,24 +66,46 @@ return [
                         [
                             'setting_name' => 'set_img_url',
                         ],
-
-                    ],
-                    'customize_control' => [
                         [
-                            'setting_name' => 'post_display',
-                            'control_section' => [
-                                'section'   => 'top_customize', // sectionを指定
-                                'settings'  => 'postEnable', // settingのキー
-                                'label'     => '投稿', // ラベル名
-                                'description' => '表示・非表示',
-                                'type'      => 'radio', // フォームの種類を指定
-                                'choices' => [
-                                    '1' => '横並び',
-                                    '2' => '縦並び',
-                                    '3' => '表示なし',
-                                ]
+                            'setting_name' => 'content_layout',
+                            'group_section' => [
+                                'type'      => 'option',
+                                'transport' => 'refresh', // 表示更新のタイミング。デフォルトは'refresh'（即時反映）
                             ],
                         ],
+                    ],
+                    'customize_control' => [
+//                        [
+//                            'setting_name' => 'post_display',
+//                            'control_section' => [
+//                                'section'   => 'top_customize', // sectionを指定
+//                                'settings'  => 'header_layout', // settingのキー
+//                                'label'     => 'ヘッダー横幅設定', // ラベル名
+//                                'description' => 'ヘッダーの横幅設定',
+//                                'type'      => 'radio', // フォームの種類を指定
+//                                'choices' => [
+//                                    '1' => '960',
+//                                    '2' => '1200',
+//                                    '3' => '1465',
+//                                    '4' => 'FULL',
+//                                ]
+//                            ],
+//                        ],
+//                        [
+//                            'setting_name' => 'post_display',
+//                            'control_section' => [
+//                                'section'   => 'top_customize', // sectionを指定
+//                                'settings'  => 'postEnable', // settingのキー
+//                                'label'     => '投稿', // ラベル名
+//                                'description' => '表示・非表示',
+//                                'type'      => 'radio', // フォームの種類を指定
+//                                'choices' => [
+//                                    '1' => '横並び',
+//                                    '2' => '縦並び',
+//                                    '3' => '表示なし',
+//                                ]
+//                            ],
+//                        ],
                         [
                             'setting_name' => 'logo_image',
                             'object' => [
@@ -107,7 +129,7 @@ return [
                             'control_section' => [
                                 'section'   => 'top_customize', // sectionを指定
                                 'settings'  => 'header_type', // settingのキー
-                                'label'     => 'ヘッダータイプ', // ラベル名
+                                'label'     => 'ヘッダー画像表示設定', // ラベル名
                                 'description' => 'ヘッダーのレイアウト設定',
                                 'type'      => 'radio', // フォームの種類を指定
                                 'choices' => [
@@ -165,6 +187,22 @@ return [
                                 ]
                             ],
                         ],
+//                        [
+//                            'setting_name' => 'footer_setting',
+//                            'control_section' => [
+//                                'section'   => 'top_customize', // sectionを指定
+//                                'settings'  => 'content_layout', // settingのキー
+//                                'label'     => 'コンテンツ幅', // ラベル名
+//                                'description' => '固定ページの表示タイプ設定',
+//                                'type'      => 'radio', // フォームの種類を指定
+//                                'choices' => [
+//                                    '1' => '960',
+//                                    '2' => '1200',
+//                                    '3' => '1465',
+//                                    '4' => 'FULL',
+//                                ]
+//                            ],
+//                        ],
                         [
                             'setting_name' => 'footer_setting',
                             'control_section' => [
