@@ -3,20 +3,26 @@
 namespace App\Widget;
 
 use App\util;
+use WP_Query;
 use WP_Widget;
 
 
 class PostWidget extends \WP_Widget {
+
+    const N_POSTS = 30;
 
     /**
      * Widgetを登録する
      */
     function __construct() {
 
+        $args = array('posts_per_page' => self::N_POSTS, 'offset' => 0, 'order' => 'DESC', 'orderby' => 'date');
+        $post_datas = new WP_Query($args);
+
         parent::__construct(
             'post_widget', // Base ID
-            'Widgetの名前', // Name
-            array( 'description' => 'Widgetの説明', ) // Args
+            '【Tempestオリジナル】投稿表示設定', // Name
+            array( 'description' => 'ブログ表示設定', ) // Args
         );
     }
 
@@ -30,6 +36,8 @@ class PostWidget extends \WP_Widget {
      */
     public function widget( $args, $instance ) {
 
+        echo __( '世界のみなさん、こんにちは', 'text_domain' );
+        echo $args['after_widget'];
     }
 
 
@@ -41,6 +49,37 @@ class PostWidget extends \WP_Widget {
     public function form( $instance )
     {
 
+        $categories = get_categories();
+        $args = array('posts_per_page' => self::N_POSTS, 'offset' => 0, 'order' => 'DESC', 'orderby' => 'date');
+        $post_datas = new WP_Query($args);
+
+        $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '最大表示件数', 'text_domain' );
+        ?>
+
+        <p>
+            <label for="<?php echo $this->get_field_id( 'post_title' ); ?>"><?php _e( '表示件数:' ); ?></label>
+            <input style="width: 60px;" type="number" min="0" class="widefat" id="<?php echo $this->get_field_id( 'post_title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>">
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'post_category' ); ?>"><?php _e( '表示したいカテゴリ:' ); ?></label>
+            <select multiple>
+                <?php foreach($categories as $key => $obj) : ?>
+                    <option value="<?php echo $obj->term_id; ?>"><?php echo $obj->name; ?></option>
+                <?php endforeach; ?>
+            </select>
+        </p>
+        <p>
+            <label for="<?php echo $this->get_field_id( 'post_priority' ); ?>"><?php _e( '優先表示設定:' ); ?></label>
+            <select id="post_recent" multiple>
+                <?php
+                while($post_datas->have_posts()) : $post_datas->the_post(); ?>
+                    <?php if(!empty(get_the_title())) :?>
+                    <option value="<?php echo get_the_id(); ?>"><?php echo get_the_title(); ?></option>
+                    <?php endif; ?>
+                <?php endwhile; ?>
+            </select>
+        </p>
+        <?php
     }
 
     /** 新しい設定データが適切なデータかどうかをチェックする。

@@ -36,5 +36,9 @@ $const = require(get_template_directory().'/config/const.php');
     <?php dynamic_sidebar( 'top_contents' ); ?>
 </section>
 <section class="contents odd-section">
-    aaaaaa
+    <?php if ( is_active_sidebar('PostWidget') ) : ?>
+        <ul class="menu">
+            <?php dynamic_sidebar('PostWidget'); ?>
+        </ul>
+    <?php endif; ?>
 </section>
