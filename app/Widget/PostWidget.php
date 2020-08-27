@@ -37,12 +37,8 @@ class PostWidget extends \WP_Widget {
     public function widget( $args, $instance ) {
         echo $args['before_widget'];
         $instance = $this->getParameter($instance);
-        $this->getPostData($instance['post_num'],$instance['post_category']);
-        echo <<< EOM
-        
-        
-
-EOM;
+        $tempest_post_data = $this->getPostData($instance['post_num'],$instance['post_category']);
+        include get_theme_file_path('sidebar-post.php');
 
         echo $args['after_widget'];
     }
@@ -73,13 +69,7 @@ EOM;
 
         $args = array('posts_per_page' => $req_posts, 'offset' => 0, 'order' => 'DESC', 'orderby' => 'date');
         $args = array_merge($args,$post_category);
-        var_dump($args);
-
-
-        $post_datas = new WP_Query($args);
-
-        var_dump($post_datas);
-
+        return $post_datas = new WP_Query($args);
     }
 
 
@@ -130,17 +120,17 @@ EOM;
                 <?php endforeach; ?>
             </select>
         </p>
-        <p>
-            <label for="<?php echo $this->get_field_id( 'post_priority' ); ?>"><?php _e( '優先表示設定:' ); ?></label><br/>
-            <select id="post_recent" multiple name="<?php echo $this->get_field_name( 'post_priority' ); ?>">
-                <?php
-                while($post_datas->have_posts()) : $post_datas->the_post(); ?>
-                    <?php if(!empty(get_the_title())) :?>
-                    <option value="<?php echo get_the_id(); ?>"><?php echo get_the_title(); ?></option>
-                    <?php endif; ?>
-                <?php endwhile; ?>
-            </select>
-        </p>
+<!--        <p>-->
+<!--            <label for="--><?php //echo $this->get_field_id( 'post_priority' ); ?><!--">--><?php //_e( '優先表示設定:' ); ?><!--</label><br/>-->
+<!--            <select id="post_recent" multiple name="--><?php //echo $this->get_field_name( 'post_priority' ); ?><!--">-->
+<!--                --><?php
+//                while($post_datas->have_posts()) : $post_datas->the_post(); ?>
+<!--                    --><?php //if(!empty(get_the_title())) :?>
+<!--                    <option value="--><?php //echo get_the_id(); ?><!--">--><?php //echo get_the_title(); ?><!--</option>-->
+<!--                    --><?php //endif; ?>
+<!--                --><?php //endwhile; ?>
+<!--            </select>-->
+<!--        </p>-->
         <?php
     }
 

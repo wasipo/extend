@@ -32,16 +32,12 @@ $const = require(get_template_directory().'/config/const.php');
         <?php endif; ?>
     </nav>
 </section>
-<section class="contents even-section">
+<section class="contents">
     <?php dynamic_sidebar( 'top_contents' ); ?>
 </section>
-<section class="contents odd-section">
+<?php dynamic_sidebar('PostWidget'); ?>
+<?php get_sidebar('post'); ?>
+<?php if ( is_active_sidebar('PostWidget') ) : ?>
 
-    <?php if ( is_active_sidebar('PostWidget') ) : ?>
-        <?php //get_sidebar('post'); ?>
 
-        <ul class="menu">
-            <?php dynamic_sidebar('PostWidget'); ?>
-        </ul>
-    <?php endif; ?>
-</section>
+<?php endif; ?>
